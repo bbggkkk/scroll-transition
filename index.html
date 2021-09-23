@@ -25,7 +25,6 @@
         }
 
         header {
-            background:#fff;
             width:100%;
             height:60px;
             padding:10px 20px;
@@ -49,13 +48,15 @@
             display:flex;
             align-items:center;
             font-weight:bold;
-            font-size:16px;
+            font-size:32px;
             z-index:10;
 
-            transform-origin:left center;
+            backface-visibility: hidden;
+            -webkit-font-smoothing: subpixel-antialiased;
+            /* transform-origin:left center; */
         }
         .title > * {
-            font-size:16px;
+            font-size:32px;
         }
         .head-control {
             position:fixed;
@@ -87,11 +88,14 @@
 
         .card {
             border-radius:24px;
-            background:#fff;
+            background:#f2f2f2;
             box-shadow:0 1px 2px rgba(0,0,0,0.1);
         }
         .card.flat {
             box-shadow:none;
+        }
+        .card.border {
+            box-shadow:0 0 0 1px rgba(128,128,128,0.2);
         }
         .card .card-item {
             padding:0 24px;
@@ -109,6 +113,10 @@
             font-size:20px;
             font-weight:bold;
         }
+
+        .bg-yellow {
+            background-color:#ffc72c;
+        }
     </style>
 </head>
 <body   data-scroll-transition="${window}"
@@ -116,12 +124,11 @@
         data-scroll-start="0"
         data-scroll-end="120">
 
-    <header class="head item"   data-before="background-color:rgba(255,255,255,0);"
-                                data-after="background-color:rgba(255,255,255,0.7);">
+    <header class="head">
     </header>
-    <div class="title item"     data-before="transform:translate(calc(0% + 20px), calc(90px - 50%)) scale(2); left:0%;"
-                                data-after="transform:translate(calc(-50% + 0px), calc(30px - 50%)) scale(1); left:50%;">
-        <h1>반갑습니다!</h1>
+    <div class="title item"     data-before="transform:translate(calc(-50% + ${document.querySelector('.title.item').offsetWidth/2}px), calc(90px - 50%)) scale(1);"
+                                data-after="transform:translate(calc(-50% + 0px), calc(30px - 50%)) scale(0.5);">
+        <h1>프로젝트</h1>
     </div>
     <div class="head-control item"  data-before="transform:translateY(120px);"
                                     data-after="transform:translateY(0px);">
@@ -138,29 +145,41 @@
     <main>
         <section>
             <h2></h2>
-            <div class="card flat"  style="background:#f2f2f2;"
-                                    data-before="opacity:1;"
-                                    data-after="opacity:0;">
-                <div class="card-item">
-                    <p class="card-title">Hello</p>
+            <div style="display:flex; gap:12px; flex-wrap:wrap;">
+                <div class="card flat border"  style="flex-grow:1; min-width:120px;">
+                    <div class="card-item">
+                        <p class="card-title">431Web Blog</p>
+                    </div>
+                    <div class="card-item">
+                        <p>개발관련 블로그 개발 프로젝트</p>
+                    </div>
                 </div>
-                <div class="card-item">
-                    <p>하윙</p>
+                <div class="card flat border"  style="flex-grow:1; min-width:120px;">
+                    <div class="card-item">
+                        <p class="card-title">Minpresso</p>
+                    </div>
+                    <div class="card-item">
+                        <p>할 일 관리 프로젝트</p>
+                    </div>
+                </div>
+                <div class="card flat border"  style="flex-grow:1; min-width:120px;">
+                    <div class="card-item">
+                        <p class="card-title">Tasker</p>
+                    </div>
+                    <div class="card-item">
+                        <p>개인화 Todo List</p>
+                    </div>
                 </div>
             </div>
         </section>
-        <section>hi</section>
     </main>
 
     <div style="height:150%;"></div>
 
-    <div    style="display:none;"
-            data-scroll-transition="${window}"
-            data-scroll-target=".card"
-            data-scroll-start="120"
-            data-scroll-end="180"></viv>
 
+    <script src="./scrollbehavior.js"></script>
     <script src="./main.js"></script>
+    
     
 </body>
 </html>
