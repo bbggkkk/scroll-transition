@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sroll Body</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Material+Icons"
+    rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
+
+    <style>
+        * {
+            padding:0;
+            margin:0;
+        }
+        body,html {
+            width:100%;
+            height:100%;
+
+            font-family:"Noto Sans KR", sans-serif;
+        }
+
+        header {
+            background:#fff;
+            width:100%;
+            height:60px;
+            padding:10px 20px;
+            box-sizing:border-box;
+            display:flex;
+            align-items:center;
+            position:fixed;
+            z-index:9;
+            top:0;
+            left:0;
+            transform-origin:top left;
+
+            -webkit-backdrop-filter:blur(10px);
+            backdrop-filter:blur(10px);
+        }
+        .title {
+            height:60px;
+            position:fixed;
+            top:0;
+            left:50%;
+            display:flex;
+            align-items:center;
+            font-weight:bold;
+            font-size:16px;
+            z-index:10;
+
+            transform-origin:left center;
+        }
+        .title > * {
+            font-size:16px;
+        }
+        .head-control {
+            position:fixed;
+            z-indeX:11;
+            top:0;
+            left:0;
+            right:0;
+            padding:0 20px;
+            height:60px;
+            
+            display:flex;
+            justify-content:space-between;
+            align-items:center;
+        }
+        main {
+            padding-top:180px;
+        }
+        .fake-head {
+            height:120px;
+            background:#f2f2f2;
+        }
+
+        section {
+            padding:0 20px;
+        }
+        section:not(:last-of-type) {
+            margin-bottom:20px;
+        }
+
+        .card {
+            border-radius:24px;
+            background:#fff;
+            box-shadow:0 1px 2px rgba(0,0,0,0.1);
+        }
+        .card.flat {
+            box-shadow:none;
+        }
+        .card .card-item {
+            padding:0 24px;
+        }
+        .card .card-item:first-of-type {
+            padding-top:24px;
+        }
+        .card .card-item:last-of-type {
+            padding-bottom:24px;
+        }
+        .card .card-item:not(:last-of-type) {
+            margin-bottom:12px;
+        }
+        .card .card-title {
+            font-size:20px;
+            font-weight:bold;
+        }
+    </style>
+</head>
+<body   data-scroll-transition="${window}"
+        data-scroll-target=".item"
+        data-scroll-start="0"
+        data-scroll-end="120">
+
+    <header class="head item"   data-before="background-color:rgba(255,255,255,0);"
+                                data-after="background-color:rgba(255,255,255,0.7);">
+    </header>
+    <div class="title item"     data-before="transform:translate(calc(0% + 20px), calc(90px - 50%)) scale(2); left:0%;"
+                                data-after="transform:translate(calc(-50% + 0px), calc(30px - 50%)) scale(1); left:50%;">
+        <h1>반갑습니다!</h1>
+    </div>
+    <div class="head-control item"  data-before="transform:translateY(120px);"
+                                    data-after="transform:translateY(0px);">
+        <!-- <div style="display:flex; align-items:center;">
+            <p class="material-icons" style="transform:translateY(0.5px);">chevron_left</p>                            
+            <p>Home</p>
+        </div> -->
+        <p></p>
+        <div>
+            <p class="material-icons">search</p>
+        </div>
+    </div>
+
+    <main>
+        <section>
+            <h2></h2>
+            <div class="card flat"  style="background:#f2f2f2;"
+                                    data-before="opacity:1;"
+                                    data-after="opacity:0;">
+                <div class="card-item">
+                    <p class="card-title">Hello</p>
+                </div>
+                <div class="card-item">
+                    <p>하윙</p>
+                </div>
+            </div>
+        </section>
+        <section>hi</section>
+    </main>
+
+    <div style="height:150%;"></div>
+
+    <div    style="display:none;"
+            data-scroll-transition="${window}"
+            data-scroll-target=".card"
+            data-scroll-start="120"
+            data-scroll-end="180"></viv>
+
+    <script src="./main.js"></script>
+    
+</body>
+</html>
