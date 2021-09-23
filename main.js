@@ -5,9 +5,9 @@
             this.init(ele);
 
             this.setScrollBody(0);
-            console.log(this);
             this.scrollTarget.addEventListener('scroll',this.setScrollBody.bind(this));
-            const obs = new ResizeObserver(() => { this.init.bind(this)(ele); });
+            const obs = new ResizeObserver(() => { this.init.bind(this)(ele); this.setScrollBody(0); });
+            obs.observe(this.scrollBody);
         }    
 
         init(ele){
@@ -45,7 +45,6 @@
                 return eval(string.match(/\$\{(.*)\}/)[1]);
             }else{
                 return string.replace(/\$\{(.*)\}/g,(match,p1) => {
-                    console.log(match,p1)
                     return eval(p1);
                 });
             }
