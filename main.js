@@ -45,7 +45,6 @@
                 return new Function('return '+string.match(/\$\{(.*)\}/)[1])();
             }else{
                 return string.replace(/\$\{(.*)\}/g,(match,p1) => {
-                    console.log(p1);
                     return new Function('return '+p1)();
                 });
             }
