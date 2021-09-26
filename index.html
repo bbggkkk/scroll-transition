@@ -122,7 +122,11 @@
 <body   data-scroll-transition="${window}"
         data-scroll-target=".item"
         data-scroll-start="0"
-        data-scroll-end="120">
+        data-scroll-end="120"
+        
+        data-scroll-snap="${window}"
+        data-scroll-snap-start="0"
+        data-scroll-snap-end="120">
 
     <header class="head">
     </header>
@@ -146,15 +150,7 @@
         <section>
             <h2></h2>
             <div style="display:flex; gap:12px; flex-wrap:wrap;">
-                <div class="card flat border card-1"  
-                                                style="flex-grow:1; min-width:120px;"
-                                                data-scroll-transition="${window}"
-                                                data-scroll-target=".card-1"
-                                                data-scroll-start="0"
-                                                data-scroll-end="120"
-                                                
-                                                data-before="background-color:rgb(19,103,189); color:rgb(255,255,255);"
-                                                data-after="background-color:rgb(242,242,242); color:rgb(0,0,0);">
+                <div class="card flat border card-1"    style="flex-grow:1;">
                     <div class="card-item">
                         <p class="card-title">431Web Blog</p>
                     </div>
@@ -162,15 +158,7 @@
                         <p>개발관련 블로그 개발 프로젝트</p>
                     </div>
                 </div>
-                <div class="card flat border card-2"  
-                                                style="flex-grow:1; min-width:120px;"
-                                                data-scroll-transition="${window}"
-                                                data-scroll-target=".card-2"
-                                                data-scroll-start="60"
-                                                data-scroll-end="180"
-                                                
-                                                data-before="background-color:rgb(255,199,44);"
-                                                data-after="background-color:rgb(242,242,242);">
+                <div class="card flat border card-2"    style="flex-grow:1;">
                     <div class="card-item">
                         <p class="card-title">Minpresso</p>
                     </div>
@@ -178,15 +166,7 @@
                         <p>할 일 관리 프로젝트</p>
                     </div>
                 </div>
-                <div class="card flat border card-3" 
-                                                style="flex-grow:1; min-width:120px;"
-                                                data-scroll-transition="${window}"
-                                                data-scroll-target=".card-3"
-                                                data-scroll-start="120"
-                                                data-scroll-end="240"
-                                                
-                                                data-before="background-color:rgb(55,244,172);"
-                                                data-after="background-color:rgb(242,242,242);">
+                <div class="card flat border card-3"    style="flex-grow:1;">
                     <div class="card-item">
                         <p class="card-title">Tasker</p>
                     </div>

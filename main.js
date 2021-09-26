@@ -121,10 +121,53 @@
         }
     }
 
+    class ScrollSnap {
+        constructor({
+            ele,
+            start,
+            end
+        }){
+            this.ele = ele.getAttribute('data-scroll-snap') === '${window}' ? window : ele;
+            this.start = start;
+            this.end   = end;
+            this.diff  = end - start;
+            this.half  = Math.round(this.diff/2);
+
+            this.init();
+        }
+
+        init(){
+            this.ele.addEventListener('scroll',this.scroll.bind(this));
+
+        }
+
+        scroll(e){
+            clearTimeout(this.isScroll);
+            this.isScroll = setTimeout(() => {
+                if(this.ele.scrollY < this.half && this.ele.scrollY > this.start){
+                    this.ele.scrollTo({
+                        top:this.start,
+                        behavior:'smooth'
+                    });
+                }else if (this.ele.scrollY > this.half && this.ele.scrollY < this.end){
+                    this.ele.scrollTo({
+                        top:this.end,
+                        behavior:'smooth'
+                    })
+                }
+            },500);
+        }
+    }
+
 
 
     const bodys = document.querySelectorAll('[data-scroll-transition]');
     [...bodys].forEach(item => { new ScrollBody(item); } );
+
+    const snap = document.querySelector('[data-scroll-snap]');
+    const snapStart = snap.getAttribute('data-scroll-snap-start');
+    const snapEnd = snap.getAttribute('data-scroll-snap-end');
+    const snapBody = new ScrollSnap({ele : snap, start : snapStart, end : snapEnd});
     
 
 })();
