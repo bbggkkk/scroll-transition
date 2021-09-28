@@ -22,6 +22,8 @@
             this.scrollEnd   = this.scrollBody.getAttribute('data-scroll-end')   ? +this.scrollBody.getAttribute('data-scroll-end')   : this.scrollHeight - this.offsetHeight;
             this.scrollDiff  = this.scrollEnd - this.scrollStart;
 
+            this.prevScroll  = undefined;
+
             for(let i=0; i<this.scrollItem.length; i++){
                 const ele = this.scrollItem[i];
                 const itemParam = ele.scrollItem = {
@@ -59,6 +61,8 @@
                 if(Y > this.scrollEnd)      Y = this.scrollEnd;
     
                 Y = Y - this.scrollStart;
+
+                if(this.prevScroll === Y) return;
                 
                 for(let i=0; i<this.scrollItem.length; i++){
                     const ele = this.scrollItem[i];
@@ -72,6 +76,8 @@
                         });
                     });
                 }
+
+                this.prevScroll = Y;
     
             });
         }
