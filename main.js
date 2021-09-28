@@ -62,6 +62,7 @@
     
                 Y = Y - this.scrollStart;
 
+                
                 if(this.prevScroll === Y) return;
                 
                 for(let i=0; i<this.scrollItem.length; i++){
