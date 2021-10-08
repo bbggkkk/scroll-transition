@@ -73,8 +73,8 @@
             style="width:100%; height:200vh; background:#000; position:relative;"
             data-scroll-transition="${window}"
             data-scroll-target=".item-s2"
-            data-scroll-start="${document.querySelector('#s2').offsetTop + 100}"
-            data-scroll-end="${document.querySelector('#s2').offsetTop + document.querySelector('#s2').offsetHeight - document.documentElement.offsetHeight - 100}">
+            data-scroll-start="${#(this).offsetTop + 100}"
+            data-scroll-end="${#(this).offsetTop + #(this).offsetHeight - #(de).offsetHeight - 100}">
         <div class="item-s2" style="width:100%; height:100vh; position:-webkit-sticky; position:sticky; top:0; left:0; background:center / cover no-repeat url('https://images.unsplash.com/photo-1553356084-58ef4a67b2a7?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=987&q=80');"     
             data-before="clip-path:circle(0%);"
             data-after="clip-path:circle(71%);">
@@ -91,8 +91,8 @@
             style="width:100%; height:200vh; background:#fff; position:relative;"
             data-scroll-transition="${window}"
             data-scroll-target=".item-s3"
-            data-scroll-start="${document.querySelector('#s3').offsetTop + 100}"
-            data-scroll-end="${document.querySelector('#s3').offsetTop + document.querySelector('#s3').offsetHeight - document.documentElement.offsetHeight - 100}">
+            data-scroll-start="${#(this).offsetTop + 100}"
+            data-scroll-end="${#(this).offsetTop + #(this).offsetHeight - #(de).offsetHeight - 100}">
         <div class="item-s3" style="width:100%; height:100vh; position:-webkit-sticky; position:sticky; top:0; left:0; background:center / cover no-repeat url('https://images.unsplash.com/photo-1553356084-58ef4a67b2a7?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=987&q=80');"     
             data-before="clip-path:circle(0%);"
             data-after="clip-path:circle(71%);">
@@ -109,8 +109,8 @@
             style="width:100%; height:200vh; background:#000; position:relative;"
             data-scroll-transition="${window}"
             data-scroll-target=".item-s4"
-            data-scroll-start="${document.querySelector('#s4').offsetTop + 100}"
-            data-scroll-end="${document.querySelector('#s4').offsetTop + document.querySelector('#s4').offsetHeight - document.documentElement.offsetHeight - 100}">
+            data-scroll-start="${#(this).offsetTop + 100}"
+            data-scroll-end="${#(this).offsetTop + #(this).offsetHeight - #(de).offsetHeight - 100}">
         <div class="item-s4" style="width:100%; height:100vh; position:-webkit-sticky; position:sticky; top:0; left:0; background:center / cover no-repeat url('https://images.unsplash.com/photo-1553356084-58ef4a67b2a7?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=987&q=80');"     
             data-before="clip-path:circle(0%);"
             data-after="clip-path:circle(71%);">
@@ -127,8 +127,8 @@
             style="width:100%; min-height:100vh; padding:24px 0; display:flex; align-items:center; position:relative;"
             data-scroll-transition="${window}"
             data-scroll-target=".item-s5"
-            data-scroll-start="${document.querySelector('#s5').offsetTop - document.documentElement.offsetHeight}"
-            data-scroll-end="${document.querySelector('#s5').offsetTop + document.querySelector('#s5').offsetHeight + document.documentElement.offsetHeight}">
+            data-scroll-start="${#(this).offsetTop - #(de).offsetHeight}"
+            data-scroll-end="${#(this).offsetTop + #(this).offsetHeight + #(de).offsetHeight}">
         <div class="warpper wrap">
             <div class="content-wrap" style="display:flex; align-items:center; flex-wrap:wrap; gap:24px;">
                 <div style="flex:1 0 320px; width:320px; max-width:75%;">
@@ -150,8 +150,8 @@
             style="width:100%; min-height:100vh; padding:24px 0; display:flex; align-items:center; position:relative; background:#f2f2f2;"
             data-scroll-transition="${window}"
             data-scroll-target=".item-s6"
-            data-scroll-start="${document.querySelector('#s6').offsetTop - document.documentElement.offsetHeight}"
-            data-scroll-end="${document.querySelector('#s6').offsetTop + document.querySelector('#s6').offsetHeight + document.documentElement.offsetHeight}">
+            data-scroll-start="${#(this).offsetTop - #(de).offsetHeight}"
+            data-scroll-end="${#(this).offsetTop + #(this).offsetHeight + #(de).offsetHeight}">
         <div class="warpper wrap">
             <div class="content-wrap" style="display:flex; flex-direction:row-reverse; align-items:center; flex-wrap:wrap; gap:24px;">
                 
@@ -176,8 +176,8 @@
             style="width:100%; min-height:100vh; padding:24px 0; display:flex; align-items:center; position:relative;"
             data-scroll-transition="${window}"
             data-scroll-target=".item-s7"
-            data-scroll-start="${document.querySelector('#s7').offsetTop - document.documentElement.offsetHeight}"
-            data-scroll-end="${document.querySelector('#s7').offsetTop + document.querySelector('#s7').offsetHeight + document.documentElement.offsetHeight}">
+            data-scroll-start="${#(this).offsetTop - #(de).offsetHeight}"
+            data-scroll-end="${#(this).offsetTop + #(this).offsetHeight + #(de).offsetHeight}">
         <div class="warpper wrap">
             <div class="content-wrap" style="display:flex; align-items:center; flex-wrap:wrap; gap:24px;">
                 <div style="flex:1 0 320px; width:320px; max-width:75%;">
@@ -192,36 +192,36 @@
                         <span   id="s7-a1"
                                 data-scroll-transition="${window}"
                                 data-scroll-target="#s7-a1"
-                                data-scroll-start="${(document.querySelector('#s7').offsetTop - document.documentElement.offsetHeight)+(document.documentElement.offsetHeight/1.4)}"
-                                data-scroll-end="${(document.querySelector('#s7').offsetTop - document.documentElement.offsetHeight)+(document.documentElement.offsetHeight/1.4)+1}"
+                                data-scroll-start="${(#(qs=#s7).offsetTop - #(de).offsetHeight)+(#(de).offsetHeight/1.4)}"
+                                data-scroll-end="${(#(qs=#s7).offsetTop - #(de).offsetHeight)+(#(de).offsetHeight/1.4)+0.1}"
                                 data-before="opacity:0;"
                                 data-after="opacity:1;">안</span>
                         <span   id="s7-a2"
                                 data-scroll-transition="${window}"
                                 data-scroll-target="#s7-a2"
-                                data-scroll-start="${(document.querySelector('#s7').offsetTop - document.documentElement.offsetHeight)+(document.documentElement.offsetHeight/1.3)}"
-                                data-scroll-end="${(document.querySelector('#s7').offsetTop - document.documentElement.offsetHeight)+(document.documentElement.offsetHeight/1.3)+1}"
+                                data-scroll-start="${(#(qs=#s7).offsetTop - #(de).offsetHeight)+(#(de).offsetHeight/1.3)}"
+                                data-scroll-end="${(#(qs=#s7).offsetTop - #(de).offsetHeight)+(#(de).offsetHeight/1.3)+0.1}"
                                 data-before="opacity:0;"
                                 data-after="opacity:1;">녕</span>
                         <span   id="s7-a3"
                                 data-scroll-transition="${window}"
                                 data-scroll-target="#s7-a3"
-                                data-scroll-start="${(document.querySelector('#s7').offsetTop - document.documentElement.offsetHeight)+(document.documentElement.offsetHeight/1.2)}"
-                                data-scroll-end="${(document.querySelector('#s7').offsetTop - document.documentElement.offsetHeight)+(document.documentElement.offsetHeight/1.2)+1}"
+                                data-scroll-start="${(#(qs=#s7).offsetTop - #(de).offsetHeight)+(#(de).offsetHeight/1.2)}"
+                                data-scroll-end="${(#(qs=#s7).offsetTop - #(de).offsetHeight)+(#(de).offsetHeight/1.2)+0.1}"
                                 data-before="opacity:0;"
                                 data-after="opacity:1;">하</span>
                         <span   id="s7-a4"
                                 data-scroll-transition="${window}"
                                 data-scroll-target="#s7-a4"
-                                data-scroll-start="${(document.querySelector('#s7').offsetTop - document.documentElement.offsetHeight)+(document.documentElement.offsetHeight/1.1)}"
-                                data-scroll-end="${(document.querySelector('#s7').offsetTop - document.documentElement.offsetHeight)+(document.documentElement.offsetHeight/1.1)+1}"
+                                data-scroll-start="${(#(qs=#s7).offsetTop - #(de).offsetHeight)+(#(de).offsetHeight/1.1)}"
+                                data-scroll-end="${(#(qs=#s7).offsetTop - #(de).offsetHeight)+(#(de).offsetHeight/1.1)+0.1}"
                                 data-before="opacity:0;"
                                 data-after="opacity:1;">세</span>
                         <span   id="s7-a5"
                                 data-scroll-transition="${window}"
                                 data-scroll-target="#s7-a5"
-                                data-scroll-start="${(document.querySelector('#s7').offsetTop - document.documentElement.offsetHeight)+(document.documentElement.offsetHeight)}"
-                                data-scroll-end="${(document.querySelector('#s7').offsetTop - document.documentElement.offsetHeight)+(document.documentElement.offsetHeight)+1}"
+                                data-scroll-start="${(#(qs=#s7).offsetTop - #(de).offsetHeight)+(#(de).offsetHeight)}"
+                                data-scroll-end="${(#(qs=#s7).offsetTop - #(de).offsetHeight)+(#(de).offsetHeight)+0.1}"
                                 data-before="opacity:0;"
                                 data-after="opacity:1;">요</span>
                     </p>
@@ -236,8 +236,8 @@
             style="width:100%; min-height:100vh; padding:24px 0; display:flex; justify-content:center; align-items:center; position:relative;"
             data-scroll-transition="${window}"
             data-scroll-target=".item-s8"
-            data-scroll-start="${document.querySelector('#s8').offsetTop - document.documentElement.offsetHeight}"
-            data-scroll-end="${document.querySelector('#s8').offsetTop}">
+            data-scroll-start="${#(this).offsetTop - #(de).offsetHeight}"
+            data-scroll-end="${#(this).offsetTop}">
         <div class="warpper wrap">
             <div class="content-wrap">
                 <p class="item-s8"  style="font-size:48px; font-weight:bold;"

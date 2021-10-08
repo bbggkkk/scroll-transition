@@ -43,13 +43,30 @@
         }
 
         isEval(string){
+
+            const parseCode = (string) => {
+                const $parse = [
+                    [new RegExp('#\\(this\\)','g'),'_this.scrollBody'],
+                    [new RegExp('#\\(de\\)','g'),'document.documentElement'],
+                    [new RegExp('#\\(qs=(.*?)\\)','g'),'document.querySelector("$1")'],
+                ];
+                const val = $parse.reduce((acc, item) => {
+                    acc = acc.replace(item[0],item[1]);
+                    return acc;
+                },string);
+                return val
+            }
+
+            const _this = this;
+            string = parseCode(string);
             if(/^\$\{.*\}$/.test(string)){
-                return new Function('return '+string.match(/\$\{(.*)\}/)[1])();
+                return new Function('_this','return '+string.match(/\$\{(.*)\}/)[1])(_this);
             }else{
                 return string.replace(/\$\{(.*)\}/g,(match,p1) => {
-                    return new Function('return '+p1)();
+                    return new Function('_this','return '+p1)(_this);
                 });
             }
+
         }
 
 
