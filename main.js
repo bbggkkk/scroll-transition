@@ -5,22 +5,24 @@
             this.init(ele);
 
             this.setScrollBody(0);
-            this.scrollTarget.addEventListener('scroll',this.setScrollBody.bind(this));
+            this.isEval(this.scrollBody.getAttribute('data-scroll-transition')).addEventListener('scroll',this.setScrollBody.bind(this));
             const obs = new ResizeObserver(() => { this.init.bind(this)(ele); this.setScrollBody(0); });
-            obs.observe(this.scrollBody);
+            obs.observe(this.scrollBody.getAttribute('data-scroll-transition') === '${window}' ? document.documentElement : this.isEval(this.scrollBody.getAttribute('data-scroll-transition')) );
         }    
 
         init(ele){
             // const scrollBody   = document.querySelector('[data-scroll-transition]');  //트랜지션 스크롤 이벤트 대상
             this.scrollBody    = ele;
             this.scrollItem    = document.querySelectorAll(ele.getAttribute('data-scroll-target'));         //트랜지션 대상
-            this.scrollTarget  = this.isEval(this.scrollBody.getAttribute('data-scroll-transition'));
+            this.scrollTarget  = this.scrollBody.getAttribute('data-scroll-transition') === '${window}' ? document.documentElement : this.isEval(this.scrollBody.getAttribute('data-scroll-transition'));
 
             //init
             //초기값 세팅
-            this.scrollStart = this.scrollBody.getAttribute('data-scroll-start') ? +this.scrollBody.getAttribute('data-scroll-start') : 0;
-            this.scrollEnd   = this.scrollBody.getAttribute('data-scroll-end')   ? +this.scrollBody.getAttribute('data-scroll-end')   : this.scrollHeight - this.offsetHeight;
+            this.scrollStart = this.scrollBody.getAttribute('data-scroll-start') ? this.isEval(this.scrollBody.getAttribute('data-scroll-start')) : 0 + this.scrollBody.offsetTop;
+            this.scrollEnd   = this.scrollBody.getAttribute('data-scroll-end')   ? this.isEval(this.scrollBody.getAttribute('data-scroll-end'))  : this.scrollBody.scrollHeight - window.innerHeight + this.scrollStart;
             this.scrollDiff  = this.scrollEnd - this.scrollStart;
+
+            console.log(this.scrollHeight);
 
             this.prevScroll  = undefined;
 
@@ -38,7 +40,7 @@
                     return acc;
                 },{});
 
-                ele.style.willChange = 'scroll-position';
+				ele.style.willChange = Object.keys(itemParam.placeholder).map(item => item.replace(/([A-Z])/g,'-$1'));
             }
         }
 
@@ -119,7 +121,7 @@
             const css = $css.replace(/;$/,"");
             const cssJS     = css.replace(/\n|(;)$/g,"")
                 .split(";")
-                .map(item => item.replace(/\-([a-z])/,(match,p1)=>p1.toUpperCase()))
+                .map(item => item.replace(/\-([a-z])/g,(match,p1)=>p1.toUpperCase()))
                 .reduce( (acc,item) => {
                     acc[item.split(":")[0].trim()] = this.isEval(item.split(":")[1].replace(/ +/g," ").trim());
                     return acc;
