@@ -171,10 +171,10 @@
     const bodys = document.querySelectorAll('[data-scroll-transition]');
     [...bodys].forEach(item => { new ScrollBody(item); } );
 
-    const snap = document.querySelector('[data-scroll-snap]');
-    const snapStart = snap.getAttribute('data-scroll-snap-start');
-    const snapEnd = snap.getAttribute('data-scroll-snap-end');
-    const snapBody = new ScrollSnap({ele : snap, start : snapStart, end : snapEnd});
+    // const snap = document.querySelector('[data-scroll-snap]');
+    // const snapStart = snap.getAttribute('data-scroll-snap-start');
+    // const snapEnd = snap.getAttribute('data-scroll-snap-end');
+    // const snapBody = new ScrollSnap({ele : snap, start : snapStart, end : snapEnd});
     
 
 })();
