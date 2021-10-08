@@ -8,7 +8,7 @@
             this.isEval(this.scrollBody.getAttribute('data-scroll-transition')).addEventListener('scroll',this.setScrollBody.bind(this));
             const obs = new ResizeObserver(() => { this.init.bind(this)(ele); this.setScrollBody(0); });
             obs.observe(this.scrollBody.getAttribute('data-scroll-transition') === '${window}' ? document.documentElement : this.isEval(this.scrollBody.getAttribute('data-scroll-transition')) );
-        }    
+        }
 
         init(ele){
             // const scrollBody   = document.querySelector('[data-scroll-transition]');  //트랜지션 스크롤 이벤트 대상
@@ -21,8 +21,6 @@
             this.scrollStart = this.scrollBody.getAttribute('data-scroll-start') ? this.isEval(this.scrollBody.getAttribute('data-scroll-start')) : 0 + this.scrollBody.offsetTop;
             this.scrollEnd   = this.scrollBody.getAttribute('data-scroll-end')   ? this.isEval(this.scrollBody.getAttribute('data-scroll-end'))  : this.scrollBody.scrollHeight - window.innerHeight + this.scrollStart;
             this.scrollDiff  = this.scrollEnd - this.scrollStart;
-
-            console.log(this.scrollHeight);
 
             this.prevScroll  = undefined;
 
@@ -40,7 +38,7 @@
                     return acc;
                 },{});
 
-				ele.style.willChange = Object.keys(itemParam.placeholder).map(item => item.replace(/([A-Z])/g,'-$1'));
+                ele.style.willChange = Object.keys(itemParam.placeholder).map(item => item.replace(/([A-Z])/g,'-$1'));
             }
         }
 
@@ -53,15 +51,15 @@
                 });
             }
         }
-    
-    
+
+
         setScrollBody(e){
             requestAnimationFrame(() => {
-                let Y = this.scrollTarget.scrollY;
-    
+                let Y = this.scrollTarget.scrollTop;
+
                 if(Y < this.scrollStart)    Y = this.scrollStart;
                 if(Y > this.scrollEnd)      Y = this.scrollEnd;
-    
+
                 Y = Y - this.scrollStart;
 
                 
@@ -70,7 +68,7 @@
                 for(let i=0; i<this.scrollItem.length; i++){
                     const ele = this.scrollItem[i];
                     const itemParam = ele.scrollItem;
-    
+
                     Object.keys(itemParam.placeholder).forEach((item) => {
 
                         // console.log(ele,item,itemParam);
@@ -81,7 +79,7 @@
                 }
 
                 this.prevScroll = Y;
-    
+
             });
         }
         
@@ -92,12 +90,12 @@
             }, {});
             return result;
         }
-    
+
         matchNumber(string){
             const result = string.match(/\-?\d{0,}\.?\d+/g).map(item => +item);
             return result;
         }
-    
+
         replaceNumberList(obj){
             const result = Object.entries(obj).reduce((acc,item) => {
                 const [key,value] = this.replaceNumber(item);
@@ -113,15 +111,15 @@
                 i++;
                 return `{${i}}`;
             });
-    
+
             return [key,result];
         }
-    
+
         parseCSS($css){
             const css = $css.replace(/;$/,"");
             const cssJS     = css.replace(/\n|(;)$/g,"")
                 .split(";")
-                .map(item => item.replace(/\-([a-z])/g,(match,p1)=>p1.toUpperCase()))
+                .map(item => item.replace(/\-([a-z])/,(match,p1)=>p1.toUpperCase()))
                 .reduce( (acc,item) => {
                     acc[item.split(":")[0].trim()] = this.isEval(item.split(":")[1].replace(/ +/g," ").trim());
                     return acc;
