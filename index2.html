@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sroll Body</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Material+Icons"
+    rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
+
+    <style>
+        * {
+            padding:0;
+            margin:0;
+        }
+        body,html {
+            width:100%;
+            height:100%;
+
+            font-family:"Noto Sans KR", sans-serif;
+        }
+
+        header {
+            width:100%;
+            height:60px;
+            padding:10px 20px;
+            box-sizing:border-box;
+            display:flex;
+            align-items:center;
+            position:fixed;
+            z-index:9;
+            top:0;
+            left:0;
+            transform-origin:top left;
+
+            -webkit-backdrop-filter:blur(10px);
+            backdrop-filter:blur(10px);
+        }
+        .title {
+            height:60px;
+            position:fixed;
+            top:0;
+            left:50%;
+            display:flex;
+            align-items:center;
+            font-weight:bold;
+            font-size:32px;
+            z-index:10;
+
+            backface-visibility: hidden;
+            -webkit-font-smoothing: subpixel-antialiased;
+            /* transform-origin:left center; */
+        }
+        .title > * {
+            font-size:32px;
+        }
+        .head-control {
+            position:fixed;
+            z-indeX:11;
+            top:0;
+            left:0;
+            right:0;
+            padding:0 20px;
+            height:60px;
+            
+            display:flex;
+            justify-content:space-between;
+            align-items:center;
+        }
+        main {
+            padding-top:180px;
+        }
+        .fake-head {
+            height:120px;
+            background:#f2f2f2;
+        }
+
+        section {
+            padding:0 20px;
+        }
+        section:not(:last-of-type) {
+            margin-bottom:20px;
+        }
+
+        .card {
+            border-radius:24px;
+            background:#f2f2f2;
+            box-shadow:0 1px 2px rgba(0,0,0,0.1);
+        }
+        .card.flat {
+            box-shadow:none;
+        }
+        .card.border {
+            box-shadow:0 0 0 1px rgba(128,128,128,0.2);
+        }
+        .card .card-item {
+            padding:0 24px;
+        }
+        .card .card-item:first-of-type {
+            padding-top:24px;
+        }
+        .card .card-item:last-of-type {
+            padding-bottom:24px;
+        }
+        .card .card-item:not(:last-of-type) {
+            margin-bottom:12px;
+        }
+        .card .card-title {
+            font-size:20px;
+            font-weight:bold;
+        }
+
+        .bg-yellow {
+            background-color:#ffc72c;
+        }
+    </style>
+</head>
+<body   data-scroll-transition="${window}"
+        data-scroll-target=".item"
+        data-scroll-start="0"
+        data-scroll-end="120"
+        
+        data-scroll-snap="${window}"
+        data-scroll-snap-start="0"
+        data-scroll-snap-end="120">
+
+    <header class="head">
+    </header>
+    <div class="title item"     data-before="transform:translate(calc(0% + ${document.querySelector('header.head').offsetWidth/-2 + 20}px), calc(90px - 50%)) scale(1);"
+                                data-after="transform:translate(calc(-50% + 0px), calc(30px - 50%)) scale(0.5);">
+        <h1 class="item"
+            data-before="opacity:1;"
+            data-after="opacity:0;">프로젝트</h1>
+        <h1 class="item"
+            style="font-weight:normal; position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); white-space:nowrap;"
+            data-before="opacity:0;"
+            data-after="opacity:1;">프로젝트</h1>
+    </div>
+    <div class="head-control item"  data-before="transform:translateY(120px);"
+                                    data-after="transform:translateY(0px);">
+        <!-- <div style="display:flex; align-items:center;">
+            <p class="material-icons" style="transform:translateY(0.5px);">chevron_left</p>                            
+            <p>Home</p>
+        </div> -->
+        <p></p>
+        <div>
+            <p class="material-icons">search</p>
+        </div>
+    </div>
+
+    <main>
+        <section>
+            <h2></h2>
+            <div style="display:flex; gap:12px; flex-wrap:wrap;">
+                <div class="card flat border card-1"    style="flex-grow:1;">
+                    <div class="card-item">
+                        <p class="card-title">431Web Blog</p>
+                    </div>
+                    <div class="card-item">
+                        <p>개발관련 블로그 개발 프로젝트</p>
+                    </div>
+                </div>
+                <div class="card flat border card-2"    style="flex-grow:1;">
+                    <div class="card-item">
+                        <p class="card-title">Minpresso</p>
+                    </div>
+                    <div class="card-item">
+                        <p>할 일 관리 프로젝트</p>
+                    </div>
+                </div>
+                <div class="card flat border card-3"    style="flex-grow:1;">
+                    <div class="card-item">
+                        <p class="card-title">Tasker</p>
+                    </div>
+                    <div class="card-item">
+                        <p>개인화 Todo List</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <div style="height:150%;"></div>
+
+
+    <script src="./scrollbehavior.js"></script>
+    <script src="./main.js"></script>
+    
+    
+</body>
+</html>
