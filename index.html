@@ -26,6 +26,10 @@
             width:100%;
         }
 
+        .wrap {
+            max-width:1080px;
+            margin:0 auto;
+        }
         .wrapper {
             padding-left:env(safe-area-inset-left);
             padding-right:env(safe-area-inset-right);
@@ -74,7 +78,7 @@
         <div class="item-s2" style="width:100%; height:100vh; position:-webkit-sticky; position:sticky; top:0; left:0; background:center / cover no-repeat url('https://images.unsplash.com/photo-1553356084-58ef4a67b2a7?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=987&q=80');"     
             data-before="clip-path:circle(0%);"
             data-after="clip-path:circle(71%);">
-            <div class="warpper"    style="overflow:hidden; width:100%; height:100vh; position:absolute; top:50%; left:50%; transform:translate(-50%, -50%); color:#000; background:#fff; mix-blend-mode:lighten;">
+            <div class="warpper wrap"    style="overflow:hidden; width:100%; height:100vh; position:absolute; top:50%; left:50%; transform:translate(-50%, -50%); color:#000; background:#fff; mix-blend-mode:lighten;">
                 <p class="item-s2"  style="position:absolute; top:50%; left:50%; font-size:min(480px,5000%); font-weight:bold; white-space:nowrap;" id="item-s2-text"
                                     data-before="transform:translate(-50%, -50%) scale(1);"
                                     data-after="transform:translate(-50%, -50%) scale(0.1);">Scroll</p>
@@ -92,7 +96,7 @@
         <div class="item-s3" style="width:100%; height:100vh; position:-webkit-sticky; position:sticky; top:0; left:0; background:center / cover no-repeat url('https://images.unsplash.com/photo-1553356084-58ef4a67b2a7?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=987&q=80');"     
             data-before="clip-path:circle(0%);"
             data-after="clip-path:circle(71%);">
-            <div class="warpper"    style="overflow:hidden; width:100%; height:100vh; position:absolute; top:50%; left:50%; transform:translate(-50%, -50%); color:#fff; background:#000; mix-blend-mode:darken;">
+            <div class="warpper wrap"    style="overflow:hidden; width:100%; height:100vh; position:absolute; top:50%; left:50%; transform:translate(-50%, -50%); color:#fff; background:#000; mix-blend-mode:darken;">
                 <p class="item-s3"  style="position:absolute; top:50%; left:50%; font-size:min(480px,5000%); font-weight:bold; white-space:nowrap;" id="item-s3-text"
                                     data-before="transform:translate(-50%, -50%) scale(1);"
                                     data-after="transform:translate(-50%, -50%) scale(0.1);">Transition</p>
@@ -110,7 +114,7 @@
         <div class="item-s4" style="width:100%; height:100vh; position:-webkit-sticky; position:sticky; top:0; left:0; background:center / cover no-repeat url('https://images.unsplash.com/photo-1553356084-58ef4a67b2a7?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=987&q=80');"     
             data-before="clip-path:circle(0%);"
             data-after="clip-path:circle(71%);">
-            <div class="warpper"    style="overflow:hidden; width:100%; height:100vh; position:absolute; top:50%; left:50%; transform:translate(-50%, -50%); color:#000; background:#fff; mix-blend-mode:lighten;">
+            <div class="warpper wrap"    style="overflow:hidden; width:100%; height:100vh; position:absolute; top:50%; left:50%; transform:translate(-50%, -50%); color:#000; background:#fff; mix-blend-mode:lighten;">
                 <p class="item-s4"  style="position:absolute; top:50%; left:50%; font-size:min(480px,5000%); font-weight:bold; white-space:nowrap;" id="item-s4-text"
                                     data-before="transform:translate(-50%, -50%) scale(1);"
                                     data-after="transform:translate(-50%, -50%) scale(0.1);">From 서성일</p>
@@ -125,16 +129,16 @@
             data-scroll-target=".item-s5"
             data-scroll-start="${document.querySelector('#s5').offsetTop - document.documentElement.offsetHeight}"
             data-scroll-end="${document.querySelector('#s5').offsetTop + document.querySelector('#s5').offsetHeight + document.documentElement.offsetHeight}">
-        <div class="warpper">
+        <div class="warpper wrap">
             <div class="content-wrap" style="display:flex; align-items:center; flex-wrap:wrap; gap:24px;">
-                <div style="flex:1 0 320px; width:320px; max-width:75vw;">
+                <div style="flex:1 0 320px; width:320px; max-width:75%;">
                     <img  class="item-s5"   data-before="transform:translateY(6%);"
                                             data-after="transform:translateY(-6%);"
                                             src="https://apple.com/v/iphone-13-pro/a/images/overview/camera/zoom/zoom_photography_1__fwjxaqc6y3qu_large.jpg">
                 </div>
                 <div    class="item-s5"     data-before="transform:translateY(-6%);"
                                             data-after="transform:translateY(6%);"
-                                            style="flex:1 0 40vw; display:flex; flex-direction:column;">
+                                            style="flex:1 0 40%; display:flex; flex-direction:column;">
                     <p style="font-weight:bold; font-size:32px;">Hello, World!</p>
                     <p style="margin-top:12px; color:#757575;">Incididunt sunt sit tempor elit nisi exercitation. Est labore esse mollit consequat nostrud eiusmod cillum incididunt commodo. Lorem laboris dolor incididunt ea consequat deserunt proident voluptate. Enim elit consequat elit incididunt.</p>
                 </div>
@@ -148,17 +152,17 @@
             data-scroll-target=".item-s6"
             data-scroll-start="${document.querySelector('#s6').offsetTop - document.documentElement.offsetHeight}"
             data-scroll-end="${document.querySelector('#s6').offsetTop + document.querySelector('#s6').offsetHeight + document.documentElement.offsetHeight}">
-        <div class="warpper">
+        <div class="warpper wrap">
             <div class="content-wrap" style="display:flex; flex-direction:row-reverse; align-items:center; flex-wrap:wrap; gap:24px;">
                 
-                <div style="flex:1 0 320px; width:320px; max-width:75vw;">
+                <div style="flex:1 0 320px; width:320px; max-width:75%;">
                     <img  class="item-s6"   data-before="transform:translateY(10%);"
                                             data-after="transform:translateY(-10%);"
                                             src="https://apple.com/v/iphone-13-pro/a/images/overview/camera/zoom/zoom_photography_3__cj8dwxni1v42_large.jpg">
                 </div>
                 <div    class="item-s6"     data-before="transform:translateY(-10%);"
                                             data-after="transform:translateY(10%);"
-                                            style="flex:1 0 40vw; display:flex; flex-direction:column; align-items:flex-end;">
+                                            style="flex:1 0 40%; display:flex; flex-direction:column; align-items:flex-end;">
                     <p style="font-weight:bold; font-size:32px;">어디서든</p>
                     <p style="font-weight:bold; font-size:32px; color:rgba(0,0,0,.5);">어디서든</p>
                     <p style="font-weight:bold; font-size:32px; color:rgba(0,0,0,.2);">어디서든</p>
@@ -174,16 +178,16 @@
             data-scroll-target=".item-s7"
             data-scroll-start="${document.querySelector('#s7').offsetTop - document.documentElement.offsetHeight}"
             data-scroll-end="${document.querySelector('#s7').offsetTop + document.querySelector('#s7').offsetHeight + document.documentElement.offsetHeight}">
-        <div class="warpper">
+        <div class="warpper wrap">
             <div class="content-wrap" style="display:flex; align-items:center; flex-wrap:wrap; gap:24px;">
-                <div style="flex:1 0 320px; width:320px; max-width:75vw;">
+                <div style="flex:1 0 320px; width:320px; max-width:75%;">
                     <img  class="item-s7"   data-before="transform:translateY(20%);"
                                             data-after="transform:translateY(-20%);"
                                             src="https://apple.com/v/iphone-13-pro/a/images/overview/camera/zoom/zoom_photography_2__foek1wimqaie_large.jpg">
                 </div>
                 <div    class="item-s7"     data-before="transform:translateY(-20%);"
                                             data-after="transform:translateY(20%);"
-                                            style="flex:1 0 40vw; display:flex; flex-direction:column;">
+                                            style="flex:1 0 40%; display:flex; flex-direction:column;">
                     <p style="font-weight:bold; font-size:32px; display:flex;">
                         <span   id="s7-a1"
                                 data-scroll-transition="${window}"
@@ -233,7 +237,7 @@
             data-scroll-target=".item-s8"
             data-scroll-start="${document.querySelector('#s8').offsetTop - document.documentElement.offsetHeight}"
             data-scroll-end="${document.querySelector('#s8').offsetTop}">
-        <div class="warpper">
+        <div class="warpper wrap">
             <div class="content-wrap">
                 <p class="item-s8"  style="font-size:48px; font-weight:bold;"
                                     data-before="color:rgb(255,255,255);"
