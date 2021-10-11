@@ -26,10 +26,11 @@
 
             for(let i=0; i<this.scrollItem.length; i++){
                 const ele = this.scrollItem[i];
+                const aft = this.isEval(ele.getAttribute('data-after'));
                 const itemParam = ele.scrollItem = {
-                    before          : this.parseCSS(ele.getAttribute('data-before')),
-                    after           : this.parseCSS(ele.getAttribute('data-after')),
-                    placeholder     : this.replaceNumberList(this.parseCSS(ele.getAttribute('data-after'))),
+                    before          : this.parseCSS(this.isEval(ele.getAttribute('data-before'))),
+                    after           : this.parseCSS(aft),
+                    placeholder     : this.replaceNumberList(this.parseCSS(aft)),
                 };
                 itemParam.numBefore = this.matchNumList(itemParam.before);
                 itemParam.numAfter  = this.matchNumList(itemParam.after);
@@ -59,12 +60,18 @@
 
             const _this = this;
             string = parseCode(string);
-            if(/^\$\{.*\}$/.test(string)){
-                return new Function('_this','return '+string.match(/\$\{(.*)\}/)[1])(_this);
+
+            const psCode = string.match(/\$\{(.*?)\}/g);
+            if(psCode !== null){
+                if(/^\$\{.*\}/.test(string)) {
+                    return new Function('_this','return '+string.substring(2,string.length-1))(_this);
+                }else{
+                    return string.replace(/\$\{(.*?)\}/g,(match,p1) => {
+                        return new Function('_this','return '+p1)(_this);
+                    });
+                }
             }else{
-                return string.replace(/\$\{(.*)\}/g,(match,p1) => {
-                    return new Function('_this','return '+p1)(_this);
-                });
+                return string;
             }
 
         }
@@ -136,7 +143,7 @@
             const css = $css.replace(/;$/,"");
             const cssJS     = css.replace(/\n|(;)$/g,"")
                 .split(";")
-                .map(item => item.replace(/\-([a-z])/,(match,p1)=>p1.toUpperCase()))
+                .map(item => item.replace(/\-([a-z])/g,(match,p1)=>p1.toUpperCase()))
                 .reduce( (acc,item) => {
                     acc[item.split(":")[0].trim()] = this.isEval(item.split(":")[1].replace(/ +/g," ").trim());
                     return acc;
